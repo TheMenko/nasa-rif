@@ -1,10 +1,10 @@
 package main
 
 import (
-    "fmt"
-    cli "github.com/TheMenko/nasa-rif/cli"
+	"fmt"
 	api "github.com/TheMenko/nasa-rif/api"
-    "github.com/perimeterx/marshmallow"
+	cli "github.com/TheMenko/nasa-rif/cli"
+	"github.com/perimeterx/marshmallow"
 )
 
 func main() {
@@ -12,10 +12,10 @@ func main() {
 	flags := cli.Flags{}
 	flags.Get()
 
-    marshmallow.EnableCache()
+	marshmallow.EnableCache()
 
 	err := api.Initialize(*flags.Rover, *flags.NumOfDays, *flags.ApiKey)
-    if err != nil {
-        fmt.Printf("API Failed: %s\n", err.Error())
-    }
+	if err != nil {
+		fmt.Printf("API Failed: %s\n", err.Error())
+	}
 }
